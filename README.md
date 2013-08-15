@@ -1,5 +1,5 @@
 ExecWithProgress
 ================
 
-Provides Gradle with a new task type named `ExecWithProgress` which can filter and transform
-command line tool logs to progress output.
+Provides Gradle with a new utility class named `ProgressOutputStream` which can be used to transform
+any logs to progress output.
