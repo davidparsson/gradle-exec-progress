@@ -1,0 +1,22 @@
+buildscript {
+	dependencies {
+		classpath files('../build/libs/gradle-exec-progress.jar')
+	}
+}
+
+import org.gradle.logging.ProgressLogger
+import org.gradle.logging.ProgressLoggerFactory
+
+defaultTasks 'example'
+
+task example(type: Exec) {
+	doFirst {
+		def progressLogger = project.services.get(ProgressLoggerFactory).newOperation(getClass())
+		def stream = new ProgressLoggerOutputStream(progressLogger, logger)
+		stream.addPattern('.* says hi!')
+		stream.logLevel = LogLevel.QUIET
+		standardOutput = stream
+	}
+	executable = './scripts/echo_five_lines.sh'
+
+}
