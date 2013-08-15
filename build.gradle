@@ -1,3 +1,12 @@
+apply plugin: 'groovy'
+
+defaultTasks 'test', 'jar'
+
+dependencies {
+  compile localGroovy()
+  compile gradleApi()
+}
+
 wrapper {
 	gradleVersion = '1.7'
 }
