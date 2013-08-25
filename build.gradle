@@ -2,6 +2,8 @@ apply plugin: 'groovy'
 
 defaultTasks 'test', 'jar'
 
+version = '0.1-SNAPSHOT'
+
 dependencies {
   compile localGroovy()
   compile gradleApi()
