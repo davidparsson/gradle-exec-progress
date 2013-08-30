@@ -4,17 +4,16 @@ buildscript {
 	}
 }
 
-import org.gradle.logging.ProgressLogger
-import org.gradle.logging.ProgressLoggerFactory
+
+
+apply plugin: 'progress'
 
 defaultTasks 'example'
 
 task example(type: Exec) {
-	doFirst {
-		def stream = new ProgressLoggerOutputStream(project)
-		stream.addPattern('.* says hi!')
-		stream.logLevel = LogLevel.QUIET
-		standardOutput = stream
+	progressLoggerStream {
+		pattern '(.*)!', { it[1] }
+		logLevel LogLevel.QUIET
 	}
 	executable = './scripts/echo_five_lines.sh'
 

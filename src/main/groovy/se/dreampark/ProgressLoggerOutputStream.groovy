@@ -1,3 +1,5 @@
+package se.dreampark
+
 import org.gradle.api.Project
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.LogLevel
@@ -14,7 +16,7 @@ class ProgressLoggerOutputStream extends OutputStream {
     int NEW_LINE_BYTE = (int) '\n'
 
     ProgressLoggerOutputStream(Project project) {
-        this.progressLogger = project.services.get(ProgressLoggerFactory).newOperation(ProgressLoggerOutputStream.class)
+        this.progressLogger = project.services.get(ProgressLoggerFactory).newOperation(getClass())
         this.logger = project.logger
     }
 
