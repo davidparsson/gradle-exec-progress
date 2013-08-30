@@ -1,4 +1,4 @@
-package se.dreampark
+package com.davator.gradle.plugins.progress
 
 import org.gradle.api.logging.LogLevel
 

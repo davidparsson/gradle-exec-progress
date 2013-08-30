@@ -1,4 +1,4 @@
-package se.dreampark
+package com.davator.gradle.plugins.progress
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
