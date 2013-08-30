@@ -1,3 +1,4 @@
+import org.gradle.api.Project
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.LogLevel
 import org.gradle.logging.ProgressLogger
@@ -12,9 +13,9 @@ class ProgressLoggerOutputStream extends OutputStream {
     LogLevel logLevel = LogLevel.INFO
     int NEW_LINE_BYTE = (int) '\n'
 
-    ProgressLoggerOutputStream(ProgressLogger progressLogger, Logger logger) {
-        this.progressLogger = progressLogger
-        this.logger = logger
+    ProgressLoggerOutputStream(Project project) {
+        this.progressLogger = project.services.get(ProgressLoggerFactory).newOperation(ProgressLoggerOutputStream.class)
+        this.logger = project.logger
     }
 
     public void write(int b) {

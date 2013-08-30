@@ -11,8 +11,7 @@ defaultTasks 'example'
 
 task example(type: Exec) {
 	doFirst {
-		def progressLogger = project.services.get(ProgressLoggerFactory).newOperation(getClass())
-		def stream = new ProgressLoggerOutputStream(progressLogger, logger)
+		def stream = new ProgressLoggerOutputStream(project)
 		stream.addPattern('.* says hi!')
 		stream.logLevel = LogLevel.QUIET
 		standardOutput = stream
