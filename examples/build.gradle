@@ -11,7 +11,7 @@ apply plugin: 'progress'
 defaultTasks 'example'
 
 task example(type: Exec) {
-	progressLoggerStream {
+	progress {
 		pattern '(.*)!', { it[1] }
 		logLevel LogLevel.QUIET
 	}
