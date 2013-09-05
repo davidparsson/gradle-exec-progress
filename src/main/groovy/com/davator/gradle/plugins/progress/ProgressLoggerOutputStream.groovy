@@ -20,6 +20,7 @@ class ProgressLoggerOutputStream extends OutputStream {
         this.logger = project.logger
     }
 
+    @Override
     public void write(int b) {
         if (b != NEW_LINE_BYTE) {
             line.append((char) b)
@@ -28,6 +29,7 @@ class ProgressLoggerOutputStream extends OutputStream {
         }
     }
 
+    @Override
     public void close() {
         if (started) {
             progressLogger.completed()
